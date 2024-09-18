@@ -17,11 +17,26 @@ android {
             }
         }
     }
+    signingConfigs {
+        release {
+            keyAlias 'hhhc'
+            keyPassword 'hhhc123456'
+            storeFile file('./platform_11.jks')
+            storePassword 'hhhc123456'
+        }
+    }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.release
+        }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.release
         }
     }
 
